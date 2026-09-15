@@ -1,0 +1,12 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<h1>صفحة الدفع</h1>
+{% if success %}
+<div class="alert alert-success">تمت المحاكاة بنجاح! شكراً لك.</div>
+{% else %}
+<p>هذه صفحة محاكاة لعملية الدفع. اضغط تأكيد لإتمام الطلب.</p>
+<form method="post">{% csrf_token %}
+  <button class="btn btn-primary">تأكيد الدفع (محاكاة)</button>
+</form>
+{% endif %}
+{% endblock %}

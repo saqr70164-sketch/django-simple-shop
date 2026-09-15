@@ -1,0 +1,24 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+<h1>سلة المشتريات</h1>
+{% if items %}
+<table class="table">
+  <thead><tr><th>المنتج</th><th>الكمية</th><th>المجموع</th></tr></thead>
+  <tbody>
+    {% for it in items %}
+    <tr>
+      <td>{{ it.product.name }}</td>
+      <td>{{ it.quantity }}</td>
+      <td>{{ it.subtotal }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p class="fw-bold">الإجمالي: {{ total }} ر.س</p>
+<form method="post" action="{% url 'checkout' %}">{% csrf_token %}
+  <button class="btn btn-success">الدفع (محاكاة)</button>
+</form>
+{% else %}
+<p>السلة فارغة.</p>
+{% endif %}
+{% endblock %}
