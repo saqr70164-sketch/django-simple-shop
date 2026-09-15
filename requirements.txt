@@ -1,2 +1,6 @@
 Django>=4.2
 Pillow
+gunicorn
+dj-database-url
+whitenoise
+psycopg2-binary

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: django-simple-shop
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    startCommand: "./start.sh"
+    envVars:
+      - key: SECRET_KEY
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "yourdomain.com,*.onrender.com"
+
+databases:
+  - name: django-db
+    engine: postgres
+    plan: starter
